@@ -2,15 +2,22 @@ import React from 'react'
 
 export default function FriendForm(props) {
   // THESE ARE THE **EXACT PROPS** FriendForm EXPECTS!!!
-  // 🔥 STEP 3 - MAKE SURE THE PARENT IS INJECTING ALL NECESSARY PROPS
-  const {
-    values,
-    onInputChange,
-    onSubmit,
-  } = props
+  const { values, update, submit } = props
+
+  const onChange = evt => {
+    // 🔥 STEP 5 - IMPLEMENT the change handler for our inputs and dropdown
+    // a) pull the name of the input from the event object
+    // b) pull the value of the input from the event object
+    // c) use the `update` callback coming in through props
+  }
+
+  const onSubmit = evt => {
+    // 🔥 STEP 6 - IMPLEMENT the submit handler and attach it to the JSX
+    // a) don't allow the browser to reload!
+    // c) use the `submit` callback coming in through props
+  }
 
   return (
-    // 🔥 STEP 4 - Give the form an `onSubmit` event handler
     <form className='form container'>
       <div className='form-group submit'>
         <h2>Add a Friend</h2>
@@ -24,21 +31,22 @@ export default function FriendForm(props) {
         {/* ////////// TEXT INPUTS ////////// */}
         {/* ////////// TEXT INPUTS ////////// */}
         <label>Username:&nbsp;
-          {/* 🔥 STEP 5 - Make an input of type `text` for username.
-              Controlled inputs also need `value` and `onChange` props.
-              Inputs render what they're told - their current value comes from app state.
-              At each keystroke, a change handler should fire to change app state. */}
+          {/* 🔥 STEP 7 - Make an input of type `text` for username.
+            Controlled inputs need `value` and `onChange` props.
+            Inputs render what they're told - their current value comes from app state.
+            At each keystroke, a change handler fires to change app state. */}
         </label>
 
         <label>Email:&nbsp;
-          {/* 🔥 STEP 6 - Make an input of type `text` for email. */}
+          {/* 🔥 STEP 8 - Make an input of type `email` or `text` for email. */}
         </label>
 
         {/* ////////// DROPDOWN ////////// */}
         {/* ////////// DROPDOWN ////////// */}
         {/* ////////// DROPDOWN ////////// */}
         <label>Role:&nbsp;
-          {/* 🔥 STEP 7 - Make dropdown for role. */}
+          {/* 🔥 STEP 9 - Make dropdown for role. Dropdowns look very different
+            but they can often use the same change handler text inputs use */}
         </label>
       </div>
     </form>
