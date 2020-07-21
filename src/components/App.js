@@ -22,7 +22,7 @@ const initialFormValues = {
   role: '',
 }
 
-// 👉 helpers to simulate async data [GET] and [POST]
+// 👉 helpers to simulate async data [GET] and [POST] (tomorrow we use the real thing!)
 const fakeAxiosGet = () => {
   return Promise.resolve({ status: 200, success: true, data: initialFriendsList })
 }
