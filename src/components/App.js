@@ -19,12 +19,12 @@ export default function App() {
   const formValues = {} // fix this using the state hook
 
   const updateForm = (inputName, inputValue) => {
-    // 🔥 STEP 2 - IMPLEMENT a "form state updater" which will be used inside the inputs' `onChange` handler
+    // 🔥 STEP 8 - IMPLEMENT a "form state updater" which will be used inside the inputs' `onChange` handler
     //  It takes in the name of an input and its value, and updates `formValues`
   }
 
   const submitForm = () => {
-    // 🔥 STEP 3 - IMPLEMENT a submit function which will be used inside the form's own `onSubmit`
+    // 🔥 STEP 9 - IMPLEMENT a submit function which will be used inside the form's own `onSubmit`
     //  a) make a new friend object, trimming whitespace from username and email
     //  b) prevent further action if either username or email or role is empty string after trimming
     //  c) POST new friend to backend, and on success update the list of friends in state with the new friend from API
@@ -40,7 +40,7 @@ export default function App() {
       <h1>Form App</h1>
 
       <FriendForm
-        // 🔥 STEP 4 - The form component needs its props.
+        // 🔥 STEP 2 - The form component needs its props.
         //  Check implementation of FriendForm
         //  to see what props it expects.
         values={{}}
