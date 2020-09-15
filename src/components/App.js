@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { v4 as uuid } from 'uuid'
 import Friend from './Friend'
 import FriendForm from './FriendForm'
-
-// 👉 the shape of the list of friends from API
-const initialFriendsList = [
-  {
-    id: uuid(), // uuid is a lib to generate random, unique ids
-    username: 'Michael',
-    email: 'michael@michael.com',
-    role: 'Student',
-  },
-]
+import axios from '../axios'
 
 // 👉 the shape of the state that drives the form
 const initialFormValues = {
@@ -20,15 +10,6 @@ const initialFormValues = {
   email: '',
   ///// DROPDOWN /////
   role: '',
-}
-
-// 👉 helpers to simulate async data [GET] and [POST] (tomorrow we use the real thing!)
-const fakeAxiosGet = () => {
-  return Promise.resolve({ status: 200, success: true, data: initialFriendsList })
-}
-const fakeAxiosPost = (url, { username, email, role }) => {
-  const newFriend = { id: uuid(), username, email, role }
-  return Promise.resolve({ status: 200, success: true, data: newFriend })
 }
 
 export default function App() {
@@ -51,12 +32,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    fakeAxiosGet('fakeapi.com').then(res => setFriends(res.data))
+    axios.get('fakeapi.com').then(res => setFriends(res.data))
   }, [])
 
   return (
     <div className='container'>
-      <header><h1>Friends App</h1></header>
+      <h1>Form App</h1>
 
       <FriendForm
         // 🔥 STEP 4 - The form component needs its props.
