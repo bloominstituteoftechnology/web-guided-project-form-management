@@ -15,7 +15,6 @@ const initialFormValues = { petName: '', petType: '' }
 function SimpleForm() {
   const [pets, setPets] = useState(petsList)
   const [formValues, setFormValues] = useState(initialFormValues)
-  console.log(formValues)
 
   const change = (event) => {
     const { name, value } = event.target
@@ -69,7 +68,7 @@ function SimpleForm() {
 render(
   <>
     <SimpleForm />
-    {/* <App /> */}
+    <App />
   </>
   , document.querySelector('#root')
 )
