@@ -30,6 +30,18 @@ export default function App() {
     //  b) prevent further action if either username or email or role is empty string after trimming
     //  c) POST new friend to backend, and on success update the list of friends in state with the new friend from API
     //  d) also on success clear the form
+    const newFriend = {
+      username: formValues.username.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role,
+    }
+    if (!newFriend.username || !newFriend.email || !newFriend.role) return
+    axios.post('fakeapi.com', newFriend)
+      .then(res => {
+        const friendFromBackend = res.data
+        setFriends([friendFromBackend, ...friends])
+        setFormValues(initialFormValues)
+      })
   }
 
   useEffect(() => {
