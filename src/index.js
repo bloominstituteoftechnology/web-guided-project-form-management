@@ -16,8 +16,26 @@ const initialFormValues = {
 }
 
 function SimpleForm() {
-  const [pets, setpets] = useState(petsList);
+  const [pets, setPets] = useState(petsList);
   const [formValues, setFormValues] = useState(initialFormValues);
+
+  const change = evt =>{
+    // running debugger here reveals the data we can pull i.e. name and value
+    const { name, value } =evt.target
+    setFormValues({...formValues, [name]: value}) // name with either be petName or petValue
+  }
+  const submit = e => {
+    //submit code
+    e.preventDefault()
+    const newPet = {
+      petName: formValues.petName.trim(), 
+      petType: formValues.petType.trim(),
+    }
+    //setPets(pets.concat(newPet))
+    setPets([...pets, newPet])
+    setFormValues(initialFormValues)
+  }
+
 
   return <div className='container'>
     <h1>Simple Form</h1>
@@ -26,8 +44,12 @@ function SimpleForm() {
         // note key{idx} is for develoepment in production we want key={XYZ.id}
         return <div key={idx}>{pet.petName} is a {pet.petType}</div>
       })
-      
     }
+    <form onSubmit={submit}>
+      <input name='petName' type="text" value={formValues.petName} onChange={change}/>
+      <input name='petType' type="text" value={formValues.petType} onChange={change}/>
+      <button> submit</button>
+    </form>
     </div>
 }
 
