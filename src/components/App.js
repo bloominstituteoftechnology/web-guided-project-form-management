@@ -12,11 +12,13 @@ const initialFormValues = {
   role: '',
 }
 
+
 export default function App() {
   const [friends, setFriends] = useState([]) // careful what you initialize your state to
 
   // 🔥 STEP 1 - WE NEED STATE TO HOLD ALL VALUES OF THE FORM!
-  const formValues = {} // fix this using the state hook
+  // const formValues = {} // fix this using the state hook
+  const [formValues, setFormValues] = useState(initialFormValues);//Review Chrom Components to confirm hooks and state
 
   const updateForm = (inputName, inputValue) => {
     // 🔥 STEP 8 - IMPLEMENT a "form state updater" which will be used inside the inputs' `onChange` handler
@@ -43,7 +45,7 @@ export default function App() {
         // 🔥 STEP 2 - The form component needs its props.
         //  Check implementation of FriendForm
         //  to see what props it expects.
-        values={{}}
+        values={formValues} update={updateForm} submit={submitForm}
       />
 
       {
