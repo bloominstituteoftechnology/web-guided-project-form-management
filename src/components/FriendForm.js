@@ -27,11 +27,28 @@ export default function FriendForm(props) {
           {/* 🔥 STEP 3 - Make an input of type `text` for username.
               Controlled inputs need `value` and `onChange` props.
               Inputs render what they're told - their current value comes from app state.
-              At each keystroke, a change handler fires to change app state. */}
+              At each keystroke, a change handler fires to change app state. 
+              */}
+            <input 
+            name='username'
+            type='text'
+            value={values.username}
+            onChange={onChange}
+            placeholder='type your username'
+            maxLength='30' //ask bakend developer what this should be.       
+            />
         </label>
 
         <label>Email
           {/* 🔥 STEP 4 - Make an input of type `email` or `text` for email. */}
+          <input
+          name='email'
+            type='email'
+            value={values.email}
+            onChange={onChange}
+            placeholder='type your email'
+            maxLength='50'
+            />
         </label>
 
         {/* ////////// DROPDOWN ////////// */}
@@ -39,6 +56,13 @@ export default function FriendForm(props) {
         {/* ////////// DROPDOWN ////////// */}
         <label>Role
           {/* 🔥 STEP 5 - Make dropdown for role. */}
+        
+        <select name='role' value={values.role} onChange={onChange}>
+          <option value="">--select role--</option>
+          <option value="instructor">Instructor</option>
+          <option value="student">Student</option>
+          <option value="tl">Team Lead</option>
+        </select>
         </label>
 
         <div className='submit'>
