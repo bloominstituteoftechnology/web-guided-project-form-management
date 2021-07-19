@@ -23,7 +23,8 @@ export default function App() {
   const updateForm = (inputName, inputValue) => {
     // 🔥 STEP 8 - IMPLEMENT a "form state updater" which will be used inside the inputs' `onChange` handler
     //  It takes in the name of an input and its value, and updates `formValues`
-    updateForm({...formValues, [inputName]: inputValue})
+    // 
+    // debugger
   }
 
   const submitForm = () => {

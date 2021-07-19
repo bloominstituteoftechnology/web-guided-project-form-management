@@ -9,10 +9,10 @@ export default function FriendForm(props) {
     // a) pull the name of the input from the event object
     // b) pull the value of the input from the event object
     //🔥🔥🔥🔥🔥🔥
-    const {inputName, inputValue} = evt.target
+    const {name, value} = evt.target
     // c) use the `update` callback coming in through props
     //🔥🔥🔥🔥🔥🔥🔥
-   update(inputName, inputValue)//put a debugger on the parent App.js updateForm and verify working. 
+   update(name, value)//put a debugger on the parent App.js updateForm and verify working. 
   }
 
   const onSubmit = evt => {
