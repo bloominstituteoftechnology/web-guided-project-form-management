@@ -44,7 +44,7 @@ export default function App() {
     axios.post('fakeapi.com', newFriend)
     .then(res => {
       // setFriends(friends.concat(res.data))//one way
-      setFriends([newFriend, ...friends])//alternative way
+      setFriends([res.data, ...friends])//alternative way
       setFormValues(initialFormValues)
     })
     .catch(err => {

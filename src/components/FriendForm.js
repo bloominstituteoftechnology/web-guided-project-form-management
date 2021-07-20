@@ -72,7 +72,7 @@ export default function FriendForm(props) {
         </label>
 
         <div className='submit'>
-          <button>submit</button>
+          <button disabled={!values.email || !values.username || !values.role}>submit</button>
         </div>
       </div>
     </form>
