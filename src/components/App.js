@@ -25,14 +25,34 @@ export default function App() {
     //  It takes in the name of an input and its value, and updates `formValues`
     // 
     // debugger
+    setFormValues({...formValues, [inputName]: inputValue})
   }
 
   const submitForm = () => {
     // 🔥 STEP 9 - IMPLEMENT a submit function which will be used inside the form's own `onSubmit`
     //  a) make a new friend object, trimming whitespace from username and email
+    const newFriend = {
+      username: formValues.username.trim(),
+      email: formValues. email.trim(), 
+      role: formValues.role,
+    }
     //  b) prevent further action if either username or email or role is empty string after trimming
+    if (!newFriend.username || !newFriend.email || !newFriend.role){
+      return
+    }
     //  c) POST new friend to backend, and on success update the list of friends in state with the new friend from API
+    axios.post('fakeapi.com', newFriend)
+    .then(res => {
+      // setFriends(friends.concat(res.data))//one way
+      setFriends([newFriend, ...friends])//alternative way
+      setFormValues(initialFormValues)
+    })
+    .catch(err => {
+      debugger
+    })
     //  d) also on success clear the form
+    // debugger
+
   }
 
   useEffect(() => {
