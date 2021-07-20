@@ -33,7 +33,7 @@ export default function App() {
     //  a) make a new friend object, trimming whitespace from username and email
     const newFriend = {
       username: formValues.username.trim(),
-      email: formValues. email.trim(), 
+      email: formValues.email.trim(), 
       role: formValues.role,
     }
     //  b) prevent further action if either username or email or role is empty string after trimming
