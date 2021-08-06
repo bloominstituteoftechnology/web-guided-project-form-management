@@ -40,6 +40,7 @@ function SimpleForm() {
     event.preventDefault()  // don't reload, this is an SPA!
     const newPets = [...pets, petInfo]
     setPets(newPets)
+    setPetInfo(defaultFormValues)
   }
 
   return (
@@ -55,17 +56,14 @@ function SimpleForm() {
         <input type="text" value={petInfo.petColor} name="petColor" onChange={onChange} />
         <button>Submit</button>
       </form>
-      
-
-
     </div>
   )
 }
 
 render(
   <>
-    <SimpleForm />
-    {/* <App /> */}
+    {/* <SimpleForm /> */}
+    <App />
   </>
   , document.querySelector('#root')
 )
