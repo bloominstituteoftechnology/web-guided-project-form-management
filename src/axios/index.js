@@ -8,6 +8,12 @@ const initialFriendsList = [
     email: 'michael@michael.com',
     role: 'Student',
   },
+  {
+    id: uuid(), // uuid is a lib to generate random, unique ids
+    username: 'Amlak',
+    email: 'michael@michael.com',
+    role: 'Student',
+  },
 ]
 
 // 👉 simulating axios for [GET] and [POST]
