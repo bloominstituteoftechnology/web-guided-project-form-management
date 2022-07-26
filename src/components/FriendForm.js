@@ -9,12 +9,16 @@ export default function FriendForm(props) {
     // a) pull the name of the input from the event object
     // b) pull the value of the input from the event object
     // c) use the `update` callback coming in through props
+    const { name, value } = evt.target;
+    update(name, value);
   }
 
   const onSubmit = evt => {
     // 🔥 STEP 7 - IMPLEMENT the submit handler
     // a) don't allow the browser to reload!
     // c) use the `submit` callback coming in through props
+    evt.preventDefault();
+    submit();
   }
 
   return (
