@@ -19,6 +19,17 @@ function SimpleForm() {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const submit = (evt) => {
+    evt.preventDefault();
+
+    const newPet = {
+      petName: formValues.petName.trim(),
+      petType: formValues.petType.trim(),
+    };
+
+    setPets(pets.concat(newPet));
+  };
+
   return (
     <div className="container">
       <h1>Simple Form App</h1>
@@ -29,7 +40,7 @@ function SimpleForm() {
           </div>
         );
       })}
-      <form>
+      <form onSubmit={submit}>
         <input
           value={formValues.petName}
           name="petName"
@@ -42,6 +53,7 @@ function SimpleForm() {
           type="text"
           onChange={change}
         />
+        <input type="submit" value="Create a Pet!" />
       </form>
     </div>
   );
