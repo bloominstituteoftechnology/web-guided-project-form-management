@@ -26,8 +26,8 @@ function SimpleForm() {
       petName: formValues.petName.trim(),
       petType: formValues.petType.trim(),
     };
-
     setPets(pets.concat(newPet));
+    setFormValues({petName:"", petType:""})
   };
 
   return (
@@ -46,12 +46,14 @@ function SimpleForm() {
           name="petName"
           type="text"
           onChange={change}
+          placeholder="Pet Name"
         />
         <input
           value={formValues.petType}
           name="petType"
           type="text"
           onChange={change}
+          placeholder="Pet Type"
         />
         <input type="submit" value="Create a Pet!" />
       </form>
@@ -62,7 +64,7 @@ function SimpleForm() {
 render(
   <>
     <SimpleForm />
-    {/* <App /> */}
+    <App />
   </>,
   document.querySelector("#root")
 );
