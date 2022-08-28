@@ -39,7 +39,11 @@ export default function App() {
 
     if(!newFriend.username || !newFriend.email) return;
 
-    axios.post()
+    axios.post("fakeapi.com", newFriend)
+      .then(res =>{
+        setFriends([...friends, res.data]);
+        setFormValues(initialFormValues);
+      }).catch(err => console.error(err));
 
   }
 
