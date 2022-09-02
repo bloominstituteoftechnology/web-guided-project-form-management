@@ -37,14 +37,16 @@ export default function App() {
       role: formValues.role
     }
 
-    if(!newFriend.username || !newFriend.email) return;
-
-    axios.post("fakeapi.com", newFriend)
-      .then(res =>{
-        setFriends([...friends, res.data]);
-        setFormValues(initialFormValues);
-      }).catch(err => console.error(err));
-
+    if(!newFriend.username || !newFriend.email) {
+      setFormError("Please enter a username")
+    } else {
+      axios.post("fakeapi.com", newFriend)
+        .then(res =>{
+          setFriends([...friends, res.data]);
+          setFormValues(initialFormValues);
+          setFormError("");
+        }).catch(err => console.error(err));
+    }
   }
 
   useEffect(() => {
@@ -54,6 +56,7 @@ export default function App() {
   return (
     <div className='container'>
       <h1>Form App</h1>
+      {formError && <h2 className="error">{formError}</h2>}
 
       <FriendForm
         // 🔥 STEP 2 - The form component needs its props.
